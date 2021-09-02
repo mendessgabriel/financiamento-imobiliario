@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <link rel="stylesheet" href="./assets/js/cdns/bootstrap.min.css" >
+</head>
+
+<body>
+    <div id="alertMessage" role="alert">
+    </div>
+    <form onchange="formController.change()" style="padding-top: 5rem;">
+        <div class="main-card">
+            <div class="form-steps">
+                <p id="idSimulacao">
+                    <img id="idImgSimu" class="iconDadosPessoais" src="./assets/img/finance.png"
+                        alt="icon dados pessoais" width="50" height="50" />
+                    <strong class="mobileHandler">Simulação</strong>
+                </p>
+                <p id="idDadosPessoais">
+                    <img id="idImgDadosPessoais" class="iconDadosPessoais"
+                        src="./assets/img/user.png" alt="icon dados pessoais" width="50"
+                        height="50" />
+                        <strong class="mobileHandler">Dados pessoais</strong>
+                </p>
+                <p id="idResultado">
+                    <img id="idImgResultado" class="iconDadosPessoais"
+                        src="./assets/img/ok.png" alt="icon dados pessoais" width="50"
+                        height="50" />
+                    <strong class="mobileHandler">Resultado</strong>
+                </p>
+            </div>
+
+            <div class="form-fields" id="simulacao">
+                <div class="tableHandler">
+                    <table class="tableSimu">
+                        <tr>
+                            <td><label for="Nome">Valor do financiamento</label></td>
+                            <td></td>
+                            <td><label for="Cpf">Prazo</label></td>
+                        </tr>
+                        <tr>
+                            <td style="padding-bottom: 2rem;">
+                                <div class="field-relative">
+                                    <input type="text" name="propertyValue" placeholder="Ex. 195038.25" id="propertyValue" class="animation-input"
+                                        aria-describedby="propertyValueHelper" max="50000000"  required
+                                        value="0" step="10000">
+                                        <!-- value="19503825" -->
+                                    <span class="animation-focus-input"></span>
+                                </div>
+                            </td>
+                            <td style="padding-bottom: 2rem;"></td>
+                            <td style="padding-bottom: 2rem;">
+                                <div class="field-relative">
+                                    <input class="animationPrazo-input" type="number" name="term" id="term" min="60"
+                                        max="420" value="180" required step="10">
+                                    <span class="animationPrazo-focus-input"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="Email">Taxa anual (%)</label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="field-relative">
+                                    <input class="animation-input" type="text" name="rate" id="rate"
+                                        aria-describedby="rateHelper" value="4.95" required step="0.1" min="0" />
+                                    <span class="animation-focus-input"></span>
+                                    <!-- value="4.95" -->
+                                </div>
+                            </td>
+                            <td>
+                            <td>
+                                <input type="button" onclick="formController._toggleView(2)" class="button-simulacao"
+                                    value="SIMULAR" />
+                            </td>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="form-fields" id="dadosPessoais">
+                <div class="tableHandler">
+                    <table class="tableResultado">
+                        <tr class="mobileHandler">
+                            <th style="padding-bottom: 1rem;"><p>Para visualizar a simulação preencha o formulário abaixo:</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td><label for="Nome">Nome</label></td>
+                            <td><label for="Cpf">Cpf</label></td>
+                        </tr>
+                        <tr>
+                            <td style="padding-bottom: 2rem;">
+                                <div class="field-relative">
+                                    <input class="animation-input" type="text" name="Nome" id="Nome" required />
+                                    <span class="animation-focus-input"></span>
+                                </div>
+                            </td>
+                            <td style="padding-bottom: 2rem;">
+                                <div class="field-relative">
+                                    <input  class="animation-input" type="text" name="Cpf" id="Cpf" required />
+                                    <span class="animation-focus-input"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="Email">Email</label></td>
+                            <td><label for="Telefone">Telefone</label></td>
+                        </tr>
+                        <tr>
+                            <td style="padding-bottom: 2rem;">
+                                <div class="field-relative">
+                                    <input class="animation-input" type="email" name="Email" id="Email" required />
+                                    <span class="animation-focus-input"></span>
+                                </div>
+                            </td>
+                            <td style="padding-bottom: 2rem;">
+                                <div class="field-relative">
+                                    <input class="animation-input" type="text" name="Telefone" id="Telefone"
+                                        required />
+                                    <span class="animation-focus-input"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="button" onclick="formController._toggleView(3)" class="button-simulacao"
+                                    value="visualizar simulação" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="form-fields" id="resultado">
+                <div>
+                    <div id="formInformationsView"></div>
+                </div>
+                <div class="result-buttons">
+                    <input style="width: 70%; height: 40px; margin-right: 10px;" type="button" onclick="formController._toggleView(1)" class="button-simulacao-back"
+                        value="Voltar" />
+                    <input style="width: 70%; height: 40px;  margin-left: 10px;" type="button" onclick="formController._SendEmail()"
+                        class="button-simulacao" value="Finalizar simulação" />
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="container">
+        <hr class="my-4">
+        <div class="row adjustFont">
+            <div class="col-8">
+                <table class="table table-sm table-bordered table-hover">
+                    <thead>
+                        <tr class="thHeader">
+                            <th scope="col">#</th>
+                            <th scope="col">Prestação</th>
+                            <th scope="col">Juros</th>
+                            <th scope="col">Amortização</th>
+                            <th scope="col">Saldo Devedor</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultTableTBody">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mainPayment col-4">
+                <div class="card">
+                    <div id="resultInformations" class="card-body"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/cdns/jquery-3.2.1.slim.min.js" ></script>
+    <script src="./assets/js/cdns/popper.min.js" ></script>
+    <script src="./assets/js/cdns/bootstrap.min.css" ></script>
+
+    <script src="assets/js/view/View.js"></script>
+    <script src="assets/js/model/Financing.js"></script>
+    <script src="assets/js/model/Message.js"></script>
+    <script src="assets/js/model/Pessoa.js"></script>
+    <script src="assets/js/view/MessageView.js"></script>
+    <script src="assets/js/view/FormInformationsView.js"></script>
+    <script src="assets/js/view/ResultTableView.js"></script>
+    <script src="assets/js/view/ResultInformationsView.js"></script>
+    <script src="assets/js/controller/FormController.js"></script>
+    <script src="assets/js/service/EmailService.js"></script>
+
+    <script src="assets/js/service/smtp.js"></script>
+
+    <script>
+        let formController = new FormController();
+    </script>
+</body>
+
+</html>

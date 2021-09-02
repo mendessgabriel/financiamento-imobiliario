@@ -1,0 +1,318 @@
+@font-face {
+    font-family: poppins;
+    src: url("../fonts/poppins-regular.ttf");
+}
+@keyframes scale{from{opacity:0} to{opacity:1}}
+@keyframes changeColor{from{background:darkslateblue; border: 1px solid darkslateblue;} to{background:#a142f5;  border: 1px solid #a142f5;}}
+
+@media (max-width: 600px)
+{
+  .mainPayment, .mobileHandler
+   {
+    display: none;
+   }
+   .button-simulacao{
+       width: 100%!important;
+   }
+   .card-item{
+       height: 4rem!important;
+   }
+   .main-card{
+       width: 95%!important;
+   }
+}
+
+.main-card{
+    margin: 0 auto;
+    font-family: poppins;
+    display: flex;
+    border-radius: 10px;
+    width: 82%;
+    box-shadow: 0px 0px 11px 1px darkgrey;
+}
+
+.form-grid{
+    display: flex;
+    padding: 1rem;
+}
+
+.form-grid label{
+    width: 100%;
+}
+
+.form-fields{
+    width: 100%;
+    padding: 1rem;
+}
+
+.form-steps{
+    width: 30%;
+    border-right: 1px solid darkgrey;
+    background: #f0f0f0;
+}
+
+.form-steps p {
+    cursor: pointer;
+    background: white;
+    border-left: 5px solid darkslateblue;
+    border-bottom: 1px solid #c7c7c7;
+    border-top: 1px solid #c7c7c7;
+    margin: 0px;
+}
+
+.form-steps p:first-child {
+    border-top-left-radius: 5px;
+}
+
+
+.form-steps p:hover {
+    animation: scale 0.5s;
+}
+
+.form-field-valor-financiamento{
+    width: 90%;
+    padding-bottom: 2rem;
+}
+
+.form-field-Prazo{
+    width: 100%;
+}
+
+.form-field-prazo{
+    width: 70%;
+}
+
+.half-grid-1{
+    width: 100%;
+}
+.half-grid-1 small {
+    color: red;
+    font-weight: bold;
+}
+.half-grid-2 small {
+    color: red;
+    font-weight: bold;
+}
+
+.field-relative{
+    position: relative;
+}
+
+.field-taxa-anual input{
+    width: 50%;
+}
+
+.field-prazo{
+    padding-bottom: 2rem;
+}
+.btnSMT{
+    width: 100%;
+    position: relative;
+    top: 2rem;
+}
+.button-simulacao{
+    cursor: pointer;
+    border: 1px solid darkslateblue;
+    border-radius: 5px;
+    background: darkslateblue;
+    color: white;
+    width: 90%;
+}
+.button-simulacao-back{
+    cursor: pointer;
+    border: 1px solid darkslateblue;
+    border-radius: 5px;
+    background: white;
+    color: darkslateblue;
+    width: 90%;
+}
+
+.button-simulacao:hover{
+    animation: changeColor 0.5s;
+    background: #a142f5;
+    border: 1px solid #a142f5;
+}
+
+.iconDadosPessoais{
+    padding: 5px
+}
+
+.disabled {
+    cursor: default!important;
+    border-left: 5px solid #d1d1d1!important;
+    color: #d1d1d1!important;
+    transform: none!important;
+    animation: none!important;
+    border-bottom: none!important;
+    border-top: none!important;
+    border-right: none!important;
+    background: #f0f0f0!important;
+}
+
+.iconDisabled{
+    opacity: 0.4;
+}
+
+.half-grid-1 input{
+    outline: none;
+    border:none;
+    border-bottom: 2px solid #d1d1d1;
+}
+
+.half-grid-2 input{
+    outline: none;
+    border:none;
+    border-bottom: 2px solid #d1d1d1;
+}
+/* 
+.tableHandler{
+    padding: 1rem;
+} */
+
+.animation-input {
+    display: block;
+    width: 90%;
+    height: 30px;
+    background: 0 0;
+    font-family: poppins!important;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.2;
+    padding: 0 2px;
+    background: #e0e0e0;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+.animation-focus-input{
+    position: absolute;
+    display: block;
+    width: 90%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+.animation-input:focus+.animation-focus-input::before {
+    width: 100%;
+}
+.animation-focus-input::before{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    -moz-transition: all .4s;
+    transition: all .4s;
+    background: #d5007d;
+    background: -webkit-linear-gradient(45deg,#8764b8,#73bbff);
+    background: -o-linear-gradient(45deg,#8764b8,#73bbff);
+    background: -moz-linear-gradient(45deg,#8764b8,#73bbff);
+    background: linear-gradient(45deg,#8764b8,#73bbff);
+}
+.animation-parent{
+    position: relative;
+}
+
+.tableSimu{
+    width: 100%;
+}
+
+.animationPrazo-input {
+    display: block;
+    width: 90%;
+    height: 30px;
+    background: 0 0;
+    font-family: poppins!important;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.2;
+    padding: 0 2px;
+    background: #e0e0e0;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+.animationPrazo-input:focus+.animationPrazo-focus-input::before {
+    width: 100%;
+}
+.animationPrazo-focus-input{
+    position: absolute;
+    display: block;
+    width: 90%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+.animationPrazo-focus-input::before{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    -moz-transition: all .4s;
+    transition: all .4s;
+    background: #d5007d;
+    background: -webkit-linear-gradient(45deg,#8764b8,#73bbff);
+    background: -o-linear-gradient(45deg,#8764b8,#73bbff);
+    background: -moz-linear-gradient(45deg,#8764b8,#73bbff);
+    background: linear-gradient(45deg,#8764b8,#73bbff);
+}
+.tableSimu tr{
+    padding-bottom: 2rem;
+}
+.tableSimu input{
+    height: 40px;
+}
+.tableResultado input{
+    height: 40px; 
+}
+
+.p-form{
+    color: black;
+    font-family: poppins!important;
+}
+
+.card-item{
+    border-radius: 6px;
+    height: 3rem;
+    padding: 5px;
+    margin: 10px;
+    box-shadow: 0px 0px 4px 1px darkgrey
+}
+.text-left{
+    width: 100%;
+}
+
+.result-buttons{
+    display: flex;
+    padding: 10px;
+}
+.tableResultado{
+    width: 100%;
+}
+
+.thHeader{
+    border-top: 5px solid darkslateblue;
+}
+
+.thHeader th{
+    background: #e0e0e0;
+}
+
+.adjustFont{
+    font-family: poppins;
+}
+
+#resultInformations p span{
+    color: black!important;
+}
